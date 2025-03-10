@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css"/>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div>
+    <h2>Patient Medicine and Appointment System</h2>
+    <tr>
+        <div class="d-flex justify-content-center">
+            <a th:href="@{'/new'}" class="btn btn-primary mx-2">User Registration</a>
+            <a th:href="@{/appointments}" class="btn btn-primary mx-2">Appointment Scheduling</a>
+            <a th:href="@{'/medications'}" class="btn btn-primary mx-2">Medication Management</a>
+        </div>
+
+    </tr>
+
+    <br/>
+    <h1>Patient Information</h1>
+    <tr>
+
+        <div class="col-sm-5" align="center">
+            <div class="panel-body" align="center">
+                <table class="table">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>Patient ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>View</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="patient : ${listpatient }">
+                        <td th:text="${patient.id}">Patient ID</td>
+                        <td th:text="${patient.firstname}">First Name</td>
+                        <td th:text="${patient.lastname}">Last Name</td>
+                        <td th:text="${patient.email}">Email</td>
+                        <td>
+                            <a th:href="@{'/view/' + ${patient.id}}">View</a>
+                        </td>
+                        <td>
+                            <a th:href="@{'/edit/' + ${patient.id}}">Edit</a>
+                        </td>
+                        <td>
+                            <a th:href="@{'/delete/' + ${patient.id}}">Delete</a>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+    </tr>
+
+
+
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
