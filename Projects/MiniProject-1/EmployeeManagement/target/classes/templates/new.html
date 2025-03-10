@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Create New Employee</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css"/>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div align="center">
+    <h1>Add New Employee</h1>
+    <br/>
+    <div class="col-sm-4">
+        <form action="#" th:action="@{/save}" th:object="${employee}" method="post" onsubmit="return validateForm()">
+
+            <div align="left">
+                <label class="form-label">First Name</label>
+                <input type="hidden" th:field="*{id}"/>
+                <input type="text" th:field="*{firstname}" class="form-control" placeholder="First Name" required minlength="2" maxlength="50"/>
+            </div>
+
+            <div align="left">
+                <label class="form-label">Last Name</label>
+                <input type="text" th:field="*{lastname}" class="form-control" placeholder="Last Name" required minlength="2" maxlength="50"/>
+            </div>
+
+            <div align="left">
+                <label class="form-label">Email</label>
+                <input type="email" th:field="*{email}" class="form-control" placeholder="Email" required />
+            </div>
+
+            <div align="left">
+                <label class="form-label">Position</label>
+                <input type="text" th:field="*{position}" class="form-control" placeholder="Position" required minlength="2" maxlength="50"/>
+            </div>
+
+            <div align="left">
+                <label class="form-label">Salary</label>
+                <input type="number" th:field="*{salary}" class="form-control" placeholder="Salary" required min="1000" max="1000000"/>
+            </div>
+
+            <br>
+            <button type="submit" class="btn btn-info">Save</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function validateForm() {
+        let firstName = document.querySelector('[th\\:field="*{firstname}"]');
+        let lastName = document.querySelector('[th\\:field="*{lastname}"]');
+        let email = document.querySelector('[th\\:field="*{email}"]');
+        let position = document.querySelector('[th\\:field="*{position}"]');
+        let salary = document.querySelector('[th\\:field="*{salary}"]');
+
+        // First Name Validation
+        if (firstName.value.trim() === "" || firstName.value.length < 2) {
+            alert("First Name must be at least 2 characters.");
+            return false;
+        }
+
+        // Last Name Validation
+        if (lastName.value.trim() === "" || lastName.value.length < 2) {
+            alert("Last Name must be at least 2 characters.");
+            return false;
+        }
+
+        // Email Validation
+        if (!email.value.match(/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/)) {
+            alert("Please enter a valid email address.");
+            return false;
+        }
+
+        // Position Validation
+        if (position.value.trim() === "" || position.value.length < 2) {
+            alert("Position must be at least 2 characters.");
+            return false;
+        }
+
+        // Salary Validation
+        if (isNaN(salary.value) || salary.value < 1000 || salary.value > 1000000) {
+            alert("Salary must be a number between 1000 and 1,000,000.");
+            return false;
+        }
+
+        return true; // Proceed with form submission if all validations pass
+    }
+</script>
+</body>
+</html>
