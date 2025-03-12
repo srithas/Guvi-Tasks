@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container text-center mt-5">
+    <h2>User Profile</h2>
+    <br/>
+    <div>
+        <p><strong>First Name:</strong> <span th:text="${passenger.firstname}"></span></p>
+        <p><strong>Last Name:</strong> <span th:text="${passenger.lastname}"></span></p>
+        <p><strong>Email:</strong> <span th:text="${passenger.email}"></span></p>
+        <a th:href="@{'/edit/' + ${passenger.id}}" class="btn btn-primary">Edit Profile</a>
+        <a th:href="@{'/dashboard'}" class="btn btn-primary">Dashboard</a>
+    </div>
+</div>
+</body>
+</html>

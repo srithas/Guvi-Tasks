@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css"/>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .container {
+            text-align: center;
+        }
+        .btn {
+            width: 150px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Online Bus Ticket Booking</h2>
+    <div>
+        <a th:href="@{'/login'}" class="btn btn-primary">Login</a>
+        <a th:href="@{'/new'}" class="btn btn-success">Register</a>
+    </div>
+</div>
+</body>
+</html>

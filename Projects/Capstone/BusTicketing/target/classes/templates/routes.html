@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <title>Available Routes</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css"/>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container mt-5">
+  <h2 class="text-center">Available Routes</h2>
+  <br/>
+
+  <!-- Table to display available routes -->
+  <table class="table table-bordered mt-3" th:if="${routes != null and not #lists.isEmpty(routes)}">
+    <thead class="thead-dark">
+    <tr>
+      <th>Departure</th>
+      <th>Destination</th>
+      <th>Departure Time</th>
+      <th>Arrival Time</th>
+      <th>Price ($)</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="route : ${routes}">
+      <td th:text="${route.departure}"></td>
+      <td th:text="${route.destination}"></td>
+      <td th:text="${route.dep_time}"></td>
+      <td th:text="${route.ari_time}"></td>
+      <td th:text="${route.pricing}"></td>
+      <td>
+        <form method="post" th:action="@{'/book-route/' + ${route.id}}">
+          <button type="submit" class="btn btn-success">Book</button>
+        </form>
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!-- Back to Dashboard Button -->
+  <div class="text-center mt-4">
+    <a th:href="@{'/dashboard'}" class="btn btn-secondary">Back to Dashboard</a>
+  </div>
+</div>
+</body>
+</html>

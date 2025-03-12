@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <title>Booking History</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css"/>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container mt-5">
+  <h2>Booking History</h2>
+  <br/>
+
+  <!-- If there are no bookings -->
+  <div th:if="${bookings.isEmpty()}">
+    <p>No bookings found!</p>
+  </div>
+
+  <!-- If there are bookings -->
+  <div th:if="${not bookings.isEmpty()}">
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+      <tr>
+        <th>Departure</th>
+        <th>Destination</th>
+        <th>Departure Time</th>
+        <th>Arrival Time</th>
+        <th>Pricing</th>
+        <th>Seat Preference</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="booking : ${bookings}">
+        <td th:text="${booking.route.departure}"></td>
+        <td th:text="${booking.route.destination}"></td>
+        <td th:text="${booking.route.dep_time}"></td>
+        <td th:text="${booking.route.ari_time}"></td>
+        <td th:text="${booking.route.pricing}"></td>
+        <td th:text="${booking.seatPreference}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Back to Dashboard Button -->
+  <a href="/dashboard" class="btn btn-secondary">Back to Dashboard</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css"/>-->
+<!--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="container text-center mt-5">-->
+<!--    <h2>Booking Form</h2>-->
+<!--    <form method="POST" th:action="@{'/submit-booking'}">-->
+<!--        <input type="hidden" th:value="${route.id}" name="routeId"/>-->
+<!--        <input type="hidden" th:value="${passenger.id}" name="passengerId"/>-->
+
+<!--        <div>-->
+<!--            <label for="seatPreference">Seat Preference:</label>-->
+<!--            <input type="text" id="seatPreference" name="seatPreference" required/>-->
+<!--        </div>-->
+
+<!--        <div>-->
+<!--            <label for="paymentMethod">Payment Method:</label>-->
+<!--            <input type="text" id="paymentMethod" name="paymentMethod" required/>-->
+<!--        </div>-->
+
+<!--        <div>-->
+<!--            <label for="cardNumber">Card Number:</label>-->
+<!--            <input type="text" id="cardNumber" name="cardNumber" required/>-->
+<!--        </div>-->
+
+<!--        <div>-->
+<!--            <label for="expiryDate">Expiry Date:</label>-->
+<!--            <input type="text" id="expiryDate" name="expiryDate" required/>-->
+<!--        </div>-->
+
+<!--        <div>-->
+<!--            <label for="cvv">CVV:</label>-->
+<!--            <input type="text" id="cvv" name="cvv" required/>-->
+<!--        </div>-->
+
+<!--        <button type="submit" class="btn btn-primary">Submit Booking</button>-->
+<!--    </form>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css"/>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container text-center mt-5">
+    <h2>Booking Form</h2>
+    <form method="post" th:action="@{'/submit-booking'}">
+        <input type="hidden" th:value="${route.id}" name="routeId"/>
+        <input type="hidden" th:value="${passenger.id}" name="passengerId"/>
+
+        <div>
+            <label for="seatPreference">Seat Preference:</label>
+            <input type="text" id="seatPreference" name="seatPreference" required/>
+        </div>
+
+        <div>
+            <label for="paymentMethod">Payment Method:</label>
+            <input type="text" id="paymentMethod" name="paymentMethod" required/>
+        </div>
+
+        <div>
+            <label for="cardNumber">Card Number:</label>
+            <input type="text" id="cardNumber" name="cardNumber" required/>
+        </div>
+
+        <div>
+            <label for="expiryDate">Expiry Date:</label>
+            <input type="text" id="expiryDate" name="expiryDate" required/>
+        </div>
+
+        <div>
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" required/>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit Booking</button>
+    </form>
+</div>
+</body>
+</html>
